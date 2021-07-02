@@ -1,6 +1,6 @@
 # Golden-Hook-Fishing
 
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Ffour-jacks.html&psig=AOvVaw32cFptjAczJ657YKyzvl07&ust=1625273638694000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCJC1t6GWw_ECFQAAAAAdAAAAABAD)
+![](src/images/four_jack.jpg)
 
 
 A simple Java implementation of the Golden Hook Fishing poker game, a localized Chinese poker game, where the user plays against a single AI component under a simple ruleset. 
