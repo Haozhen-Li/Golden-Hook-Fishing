@@ -13,6 +13,10 @@ Game Description:
 Golden Hook Fishing, also known as Golden Hook, Pull the Train, Stack the Tower, and possible many other localized name, is a poker game commonly played in certain region of Mainland China. The game involves 2 or more people, and is played automatically by following the rule of the game, with no decision making process required on any player's side and the outcome entirely dependent on each player's luck, making it a great casual card game for fun. 
 
 
+
+
+
+
 Rule of the Game:
 
 The game uses standard chinese 54-card poker deck, consist of standard 52-card poker deck and two joker, one being red/colored and one being grey/colorless. Usually n/2 (round up) decks of these 54-card deck is used for a n-player game to ensure varity and length of game, though more decks of card can be used. The order of play is decided before play and does not change, usually in either clockwise or counter clockwise.
