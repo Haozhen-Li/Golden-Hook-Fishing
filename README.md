@@ -12,13 +12,11 @@ Nevertheless, this implementation serves as a nostaligic callback to my childhoo
 
 <br />
 <br />
-<br />
 
 Game Description:
 
 Golden Hook Fishing, also known as Golden Hook, Pull the Train, Stack the Tower, and possible many other localized chinese name, is a poker game commonly played in certain region of Mainland China, particularly northeastern China as far as I know. The game involves 2 or more people, and is played semi-automatically by following the rule of the game, with no decision making process required on any player's side and the outcome entirely dependent on each player's luck, making it a great casual card game for fun. 
 
-<br />
 <br />
 <br />
 
