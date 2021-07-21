@@ -20,7 +20,7 @@ public class GameFrame extends javax.swing.JFrame {
     // the game about certain player action
     private GoldenHookFishing game;
     
-    // list of labels used to represent cards on board
+    // list of labels used to represent cards on board.
     // each label would be set up to display a png of a Card
     // object the board hold in the same location
     private List<JLabel> boardLabelList;
@@ -40,17 +40,17 @@ public class GameFrame extends javax.swing.JFrame {
         utility = new ImageUtility();
         utility.loadImage();
         
-        // initialize the board card display labels manually,
+        // initialize the labels used for card display manually.
         // this is much easier to manage than using code generation.
         boardLabelList = new ArrayList<>();
         for(int i = 0; i < 15; i++){
-            // initialize with empty placeholder to be filled with asset Icons
+            // initialize with empty placeholder to be filled with asset Icons later on
             JLabel label = new JLabel();
             boardLabelList.add(label);
             label.setOpaque(true);
             // bound/size of the label display
             label.setBounds(0, i*ImageUtility.CARD_GAP, ImageUtility.CARD_WIDTH, ImageUtility.CARD_HEIGHT); 
-            // weight setting to display cards in a solitaire stack fashion
+            // weight setting that allows display cards in a solitaire stack fashion
             boardPane.add(boardLabelList.get(i), Integer.valueOf(i));
         }
 
@@ -207,7 +207,6 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void drawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawButtonActionPerformed
         game.playerPlay();
-        
     }//GEN-LAST:event_drawButtonActionPerformed
 
     /**
@@ -222,7 +221,6 @@ public class GameFrame extends javax.swing.JFrame {
         messageArea.repaint();
     }
     
-    
     public void updatePlayerCardCount(int newCount){
         playerCardCountField.setText(String.valueOf(newCount));
     }
@@ -232,8 +230,8 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     // update the board on call after change on board, which includes
-    // addition of new cards and removal of cards
-    // probably can done it more efficiently, but this is just a simple demo
+    // addition of new cards and removal of cards.
+    // probably can done it more efficiently, but this will work for now.
     public void updateBoard(Board board){
         List<Card> boardContent = board.getContent();
         int i;

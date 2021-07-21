@@ -8,22 +8,31 @@ import javax.swing.Timer;
 
 /**
  * The game class, host and manage logic of the game
+ * and contain a GaemFrame object that allows
+ * the game class to update the GUI directly using
+ * GameFrame's methods
  */
 public class GoldenHookFishing {
     
+    // global delay after each event, such as playing card, 
+    // triggering duplicate rank fishing, Jack played, etc.
+    // this delay is set in place to give player time to
+    // observe events taking place on board.
     public static final int GLOBAL_DELAY = 1000;
     
-    // the GUI frame the game is hosted on
+    // the GUI frame the game is hosted on, will be used to update GUI
     private GameFrame frame;
     
-    // The two player, not planning to have more than two at the moement, maybe after 
-    // finishing up the two player version of this thing.
+    // the two players, not planning to have more than two at the moement, 
+    // will have to design more GUI for more player count, and I don't think
+    // the game is any fun to be viably multiplayer, unlike blackjack.
     Player player;
     Player ai;
     
-    // holds the Player whos in their turn and should make a move
+    // holds the player whos in their turn and should make a move
     Player currentPlayer;
-    // the middle pond where both player plays into and fish cards out of.
+    
+    // the middle board where both player plays into and fish cards out of.
     Board board;
     
     // initialize the game
@@ -33,7 +42,7 @@ public class GoldenHookFishing {
         board = new Board();
         currentPlayer = player;
 
-        // obtain and shuffle deck, then distribute them evenly
+        // obtain and shuffle a standard 54 deck, then distribute them evenly
         Deck deck = new Deck();
         deck.add54Deck();
         deck.shuffle();
@@ -80,21 +89,6 @@ public class GoldenHookFishing {
                     
                     frame.enableDrawButton();
                     
-//                    // one more delay after processing board event to give time
-//                    // for player to register the procedure
-//                    Timer postPlayTimer = new Timer(1000, new ActionListener() {
-//                        public void actionPerformed(ActionEvent e){
-//                            // when a special event is triggered by a player.
-//                            // i.e. playing a Jack, any two joker, or a card
-//                            // with a rank duplicate of what's on board,
-//                            // it would be said player's turn to play a card
-//                            // from their draw pile after the event finished,
-//                            // hence the lack of ai play prompt or player change
-//                            frame.enableDrawButton(); // it's player's turn again
-//                        }
-//                    });
-//                    postPlayTimer.setRepeats(false);
-//                    postPlayTimer.start();
                     
                 }
                 else{
@@ -221,7 +215,7 @@ public class GoldenHookFishing {
                 return;
                 
             case 11: // remove all card on board, and give it to player
-                removedCards = board.removeCard(0);
+                removedCards = board.removeCards(0);
                 currentPlayer.addCards(removedCards);
                 frame.appendMessage(String.format("%s fished all %d cards on board\n", playerName, removedCards.size(), opponentName));
                 return;
@@ -229,8 +223,8 @@ public class GoldenHookFishing {
             default: // remove all cards inbetween duplicated rank card and give it to player
                 for(int i = 0; i < board.size(); i++){
                     Card c = board.content.get(i);
-                    if(c.equals(lastCard)){
-                        removedCards = board.removeCard(i);
+                    if(c.equalsRank(lastCard)){
+                        removedCards = board.removeCards(i);
                         currentPlayer.addCards(removedCards);
                         frame.appendMessage(String.format("%s fished %d cards on board\n", playerName, removedCards.size(), opponentName));
                     }

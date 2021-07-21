@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * The deck class, used to store and build collection of cards
- * used in the game, such as the standard 54 card deck used for the game
+ * Used to store and build collection of cards used in the game,
+ * such as the standard 54 card deck used for the game
  * and the draw pile deck used by each player.
  * @author Haozhen Li
  */
 public class Deck {
-    // your standard 52 playing card deck
+    // your standard 52 playing card deck plus 1 colorless and 1 color Joker
     static final List<Card> standard54Deck = new ArrayList<Card>() {
         {
             add(new Card(1, Suit.Spades)); add(new Card(1, Suit.Hearts)); 
@@ -49,15 +49,16 @@ public class Deck {
         }
     };
 
-    // can't use sets since there will be duplicate card for 2+ standard deck
+    // not use sets since there will be duplicate card for 2+ standard deck,
+    // which I might add in later as an option for the player
     List<Card> content;
     
-    // Construct, create an empty deck.
+    // construct, create an empty deck.
     public Deck(){
         content = new ArrayList<>();
     }
 
-    // ddds standard 54 card deck to current deck's content
+    // adds a static standard 54 card deck to current deck's content
     public void add54Deck(){
         content.addAll(standard54Deck);
     }
@@ -67,6 +68,7 @@ public class Deck {
         Collections.shuffle(content);
     }
     
+    // getters
     List<Card> getDeck(){
         return content;
     }
